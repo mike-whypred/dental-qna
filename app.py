@@ -51,8 +51,13 @@ if prompt := st.chat_input("Ask your question:"):
 
     # Get the answer to the user's question
     answer = get_answer(prompt)
-    response = f"{answer}, does that help with your questions?"
-    
+
+    if answer.lower() == "great happy i could help!" or answer.lower() == 'what else can i help with?':
+        
+        response = f"{answer}"
+    else:
+
+        response = f"{answer}, does that help with your questions?"
     # Display assistant response in chat message container
     with st.chat_message("assistant", avatar= '👩‍⚕️'):
         st.markdown(response)
@@ -63,7 +68,7 @@ url = 'https://portal.ada.org.au/Portal/Shared_Content/Smart-Suite/Smart-Maps/Pu
 st.markdown(f"""
     <style>
         .find-dentist-button {{
-            background-color: lightgrey;
+            background-color: darkgrey;
             color: black;
             padding: 10px 20px;
             border: none;
